@@ -36,6 +36,11 @@ function db_dump_plugin_admin_page() {
         db_dump_plugin_export();
         echo '<div class="updated"><p>Database export completed.</p></div>';
     }
+
+    if ( isset( $_POST['db_dump_plugin_upload_posts'] ) && check_admin_referer( 'db_dump_plugin_upload_posts', 'db_dump_plugin_upload_posts_nonce' ) ) {
+        db_dump_plugin_upload_posts();
+        echo '<div class="updated"><p>Blog posts uploaded.</p></div>';
+    }
     ?>
     <div class="wrap">
         <h1>DB Dump Plugin</h1>
@@ -43,6 +48,12 @@ function db_dump_plugin_admin_page() {
             <?php wp_nonce_field( 'db_dump_plugin_export', 'db_dump_plugin_nonce' ); ?>
             <p>
                 <input type="submit" name="db_dump_plugin_pull" class="button button-primary" value="Pull Database" />
+            </p>
+        </form>
+        <form method="post" style="margin-top:1em;">
+            <?php wp_nonce_field( 'db_dump_plugin_upload_posts', 'db_dump_plugin_upload_posts_nonce' ); ?>
+            <p>
+                <input type="submit" name="db_dump_plugin_upload_posts" class="button" value="Upload Blog Posts" />
             </p>
         </form>
     </div>
@@ -110,6 +121,30 @@ function db_dump_plugin_export() {
         }
         $sql .= "SET foreign_key_checks = 1;\n";
         file_put_contents( $dumpfile, $sql );
+    }
+}
+
+/**
+ * Load blog post scripts from the blog directory and insert new posts.
+ */
+function db_dump_plugin_upload_posts() {
+    $blog_dir = plugin_dir_path( __FILE__ ) . 'blog/';
+    if ( ! is_dir( $blog_dir ) ) {
+        return;
+    }
+
+    foreach ( glob( $blog_dir . '*.php' ) as $post_file ) {
+        include_once $post_file;
+
+        $slug = str_replace( '-', '_', basename( $post_file, '.php' ) );
+        $function = 'db_dump_blog_' . $slug;
+
+        if ( function_exists( $function ) ) {
+            $result = call_user_func( $function );
+            if ( $result ) {
+                @unlink( $post_file );
+            }
+        }
     }
 }
 ?>

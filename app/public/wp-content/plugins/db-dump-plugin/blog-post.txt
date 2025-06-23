@@ -1,0 +1,4 @@
+Proof of Concept Post
+=====================
+
+This is a simple proof-of-concept blog post. It demonstrates how to import a post directly via SQL.
