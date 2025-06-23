@@ -2,7 +2,7 @@
 /*
 Plugin Name: DB Dump Plugin
 Description: Provides a simple admin page to export the full WordPress database to an SQL file.
-Version: 1.0.0
+Version: 1.0.1
 Author: Codex QA
 */
 
@@ -61,7 +61,7 @@ function db_dump_plugin_export() {
     $host     = DB_HOST;
     $dumpfile = plugin_dir_path( __FILE__ ) . 'database-export.sql';
 
-    // Attempt to use mysqldump via shell command.
+    // Attempt to use mysqldump via shell command if available.
     $command = sprintf(
         'mysqldump --user=%s --password=%s --host=%s %s > %s 2>&1',
         escapeshellarg( $user ),
@@ -71,13 +71,18 @@ function db_dump_plugin_export() {
         escapeshellarg( $dumpfile )
     );
 
+    $use_php_fallback = true;
     if ( function_exists( 'exec' ) ) {
         exec( $command, $output, $return_var );
-        if ( $return_var !== 0 ) {
+        if ( $return_var === 0 ) {
+            $use_php_fallback = false;
+        } else {
             error_log( 'DB Dump Plugin: mysqldump failed. Output: ' . implode( '\n', $output ) );
         }
-    } else {
-        // Fallback: use php to export (may be slower, but avoids exec dependency).
+    }
+
+    if ( $use_php_fallback ) {
+        // Fallback: use PHP to export (may be slower, but avoids exec dependency).
         $tables = $wpdb->get_col( 'SHOW TABLES' );
         $sql = "SET foreign_key_checks = 0;\n";
         foreach ( $tables as $table ) {
