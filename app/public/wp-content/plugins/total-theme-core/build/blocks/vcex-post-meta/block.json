@@ -1,0 +1,36 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "vcex/post-meta",
+  "title": "Post Meta",
+  "category": "total",
+  "description": "Displays the current post meta.",
+  "keywords": [
+    "post",
+    "meta",
+    "date",
+    "category"
+  ],
+  "version": "1.0",
+  "textdomain": "total-theme-core",
+  "usesContext": [
+    "postId"
+  ],
+  "attributes": {
+    "align": {
+      "type": "string"
+    },
+    "gutter": {
+      "type": "string"
+    },
+    "icon_margin": {
+      "type": "string"
+    }
+  },
+  "supports": {
+    "customClassName": true
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "render": "file:./render.php"
+}

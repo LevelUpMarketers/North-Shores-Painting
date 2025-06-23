@@ -1,0 +1,69 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "vcex/button",
+  "title": "Theme Button",
+  "category": "total",
+  "description": "Insert a theme button.",
+  "keywords": [
+    "button",
+    "total",
+    "theme"
+  ],
+  "version": "1.0",
+  "textdomain": "total-theme-core",
+  "attributes": {
+    "content": {
+      "type": "string"
+    },
+    "style": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string",
+      "default": "#"
+    },
+    "rel": {
+      "type": "string"
+    },
+    "download_attribute": {
+      "type": "boolean",
+      "default": false
+    },
+    "target_blank": {
+      "type": "boolean",
+      "default": false
+    },
+    "expanded": {
+      "type": "boolean",
+      "default": false
+    },
+    "custom_background": {
+      "type": "string"
+    },
+    "custom_color": {
+      "type": "string"
+    },
+    "custom_hover_background": {
+      "type": "string"
+    },
+    "custom_hover_color": {
+      "type": "string"
+    },
+    "color": {
+      "type": "string"
+    },
+    "size": {
+      "type": "string"
+    },
+    "text_align": {
+      "type": "string"
+    }
+  },
+  "supports": {
+    "customClassName": false
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "render": "file:./render.php"
+}

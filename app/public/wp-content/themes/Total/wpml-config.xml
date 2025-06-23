@@ -1,0 +1,20 @@
+<wpml-config>
+    <shortcodes>
+        <shortcode>
+            <tag>vc_row</tag>
+            <attributes>
+                <attribute>video_bg_mp4</attribute>
+                <attribute>video_bg_webm</attribute>
+                <attribute>video_bg_ogv</attribute>
+            </attributes>
+        </shortcode>
+        <shortcode>
+            <tag>vc_section</tag>
+            <attributes>
+                <attribute>video_bg_mp4</attribute>
+                <attribute>video_bg_webm</attribute>
+                <attribute>video_bg_ogv</attribute>
+            </attributes>
+        </shortcode>
+    </shortcodes>
+</wpml-config>

@@ -1,0 +1,60 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "vcex/wpex-card",
+  "title": "Post Card",
+  "category": "total",
+  "description": "Post Card for the Query Loop block.",
+  "keywords": [
+    "card",
+    "post",
+    "query",
+    "loop"
+  ],
+  "version": "1.0",
+  "textdomain": "total-theme-core",
+  "usesContext": [
+    "postId"
+  ],
+  "attributes": {
+    "card_style": {
+      "type": "string"
+    },
+    "style": {
+      "type": "string"
+    },
+    "link_type": {
+      "type": "string"
+    },
+    "title_tag": {
+      "type": "string"
+    },
+    "thumbnail_size": {
+      "type": "string"
+    },
+    "postId": {
+      "type": "string"
+    },
+    "excerpt_length": {
+      "type": "string"
+    },
+    "more_link_text": {
+      "type": "string"
+    },
+    "title_font_size": {
+      "type": "string"
+    },
+    "thumbnail_overlay_style": {
+      "type": "string"
+    },
+    "link_target": {
+      "type": "string"
+    }
+  },
+  "supports": {
+    "customClassName": false
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "render": "file:./render.php"
+}

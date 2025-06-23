@@ -1,0 +1,51 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "vcex/newsletter-form",
+  "title": "Newsletter",
+  "category": "total",
+  "description": "Displays a simple newsletter form.",
+  "keywords": [
+    "newsletter",
+    "form"
+  ],
+  "version": "1.0",
+  "textdomain": "total-theme-core",
+  "attributes": {
+    "form_action": {
+      "type": "string"
+    },
+    "stack_fields": {
+      "type": "boolean",
+      "default": false
+    },
+    "fullwidth_mobile": {
+      "type": "boolean",
+      "default": false
+    },
+    "gap": {
+      "type": "string"
+    },
+    "placeholder_text": {
+      "type": "string"
+    },
+    "submit_text": {
+      "type": "string"
+    },
+    "input_height": {
+      "type": "string"
+    },
+    "input_name": {
+      "type": "string"
+    },
+    "hidden_fields": {
+      "type": "string"
+    }
+  },
+  "supports": {
+    "customClassName": false
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "render": "file:./render.php"
+}

@@ -1,0 +1,67 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "vcex/contact-form",
+  "title": "Contact Form",
+  "category": "total",
+  "description": "Displays a simple contact form.",
+  "keywords": [
+    "contact",
+    "form"
+  ],
+  "version": "1.0",
+  "textdomain": "total-theme-core",
+  "attributes": {
+    "style": {
+      "type": "string"
+    },
+    "enable_placeholders": {
+      "type": "boolean",
+      "default": false
+    },
+    "stack_fields": {
+      "type": "boolean",
+      "default": false
+    },
+    "enable_recaptcha": {
+      "type": "boolean",
+      "default": true
+    },
+    "enable_privacy_check": {
+      "type": "boolean",
+      "default": true
+    },
+    "enable_required_label": {
+      "type": "boolean",
+      "default": true
+    },
+    "button_text": {
+      "type": "string"
+    },
+    "label_name": {
+      "type": "string"
+    },
+    "label_email": {
+      "type": "string"
+    },
+    "label_message": {
+      "type": "string"
+    },
+    "label_privacy": {
+      "type": "string"
+    },
+    "email_subject": {
+      "type": "string"
+    },
+    "message_rows": {
+      "type": "integer",
+      "default": "8"
+    }
+  },
+  "supports": {
+    "customClassName": true
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "render": "file:./render.php"
+}

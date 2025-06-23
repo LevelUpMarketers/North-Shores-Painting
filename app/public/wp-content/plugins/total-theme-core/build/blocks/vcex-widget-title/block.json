@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "vcex/widget-title",
+  "title": "Widget Title",
+  "category": "total",
+  "description": "Adds a widget title.",
+  "keywords": [
+    "widget",
+    "heading",
+    "title"
+  ],
+  "version": "1.0",
+  "textdomain": "total-theme-core",
+  "attributes": {
+    "content": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    }
+  },
+  "supports": {
+    "customClassName": false
+  },
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php"
+}

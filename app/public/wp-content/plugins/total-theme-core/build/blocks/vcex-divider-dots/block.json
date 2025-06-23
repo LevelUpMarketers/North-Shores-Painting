@@ -1,0 +1,41 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "vcex/divider-dots",
+  "title": "Divider Dots",
+  "category": "total",
+  "description": "Displays a 3 colored dot divider.",
+  "keywords": [
+    "divider",
+    "dots"
+  ],
+  "version": "1.0",
+  "textdomain": "total-theme-core",
+  "attributes": {
+    "count": {
+      "type": "integer",
+      "default": "3"
+    },
+    "size": {
+      "type": "string"
+    },
+    "spacing": {
+      "type": "string"
+    },
+    "margin": {
+      "type": "string"
+    },
+    "align": {
+      "type": "string",
+      "default": "center"
+    },
+    "color": {
+      "type": "string"
+    }
+  },
+  "supports": {
+    "customClassName": true
+  },
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php"
+}

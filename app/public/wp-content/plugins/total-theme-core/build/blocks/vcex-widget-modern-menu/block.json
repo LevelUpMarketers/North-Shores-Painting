@@ -1,0 +1,51 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "vcex/widget-modern-menu",
+  "title": "Sidebar Menu",
+  "category": "total",
+  "description": "Modern sidebar menu widget.",
+  "keywords": [
+    "widget",
+    "menu"
+  ],
+  "version": "1.0",
+  "textdomain": "total-theme-core",
+  "attributes": {
+    "menu_id": {
+      "type": "number"
+    },
+    "aria_label": {
+      "type": "string"
+    },
+    "style": {
+      "type": "string",
+      "default": "bordered"
+    },
+    "show_arrows": {
+      "type": "boolean",
+      "default": true
+    },
+    "show_descriptions": {
+      "type": "boolean",
+      "default": false
+    },
+    "hide_dropdowns": {
+      "type": "boolean",
+      "default": false
+    },
+    "arrow_position": {
+      "type": "string"
+    },
+    "expand_active_dropdowns": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "supports": {
+    "customClassName": true
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "render": "file:./render.php"
+}
